@@ -10,6 +10,6 @@ public:
 
 private:
     float angleToRadians(int angle);
-    int m_x;
-    int m_y;
+    float m_x;
+    float m_y;
 };

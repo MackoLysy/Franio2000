@@ -4,8 +4,6 @@ using namespace rapidjson;
 
 Robot::Robot(/* args */) : m_errorCode(0), m_error("")
 {
-    Point point(0, 0);
-    m_points.push_back(point);
 }
 
 Robot::~Robot()
