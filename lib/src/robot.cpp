@@ -35,6 +35,8 @@ void Robot::handleJson(Document &doc)
     {
         int angle = getIntValue(doc, "angle");
         int distance = getIntValue(doc, "distance");
+        Point point(m_robot_pos->getX(), m_robot_pos->getY());
+        m_points.push_back(point);
         break;
     }
     default:

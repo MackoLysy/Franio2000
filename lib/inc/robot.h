@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <memory>
 
 #include "rapidjson/document.h"
 #include "point.h"
@@ -17,6 +18,6 @@ private:
     int m_errorCode;
     std::string m_error;
     std::vector<Point> m_points;
-
+    std::shared_ptr<Point> m_robot_pos;
     void handleJson(rapidjson::Document &doc);
 };
