@@ -29,9 +29,8 @@ bool Robot::parse(const char *data)
 
 void Robot::handleJson(Document &doc)
 {
-    std::string cmd = getStringValue(doc, "cmd");
-    std::cout << cmd << std::endl;
-    if (cmd.compare("distance") == 0)
+    auto cmd = getStringValue(doc, "cmd");
+    if (cmd == "distance")
     {
         int angle = getIntValue(doc, "angle");
         int distance = getIntValue(doc, "distance");
