@@ -4,6 +4,7 @@ using namespace rapidjson;
 
 Robot::Robot(/* args */) : m_errorCode(0), m_error("")
 {
+    m_robot_pos = std::make_shared<Point>();
 }
 
 Robot::~Robot()
@@ -28,20 +29,16 @@ bool Robot::parse(const char *data)
 
 void Robot::handleJson(Document &doc)
 {
-    auto cmd = getStringValue(doc, "cmd");
-    switch (str2int(cmd.c_str()))
-    {
-    case str2int("distance"):
+    std::string cmd = getStringValue(doc, "cmd");
+    std::cout << cmd << std::endl;
+    if (cmd.compare("distance") == 0)
     {
         int angle = getIntValue(doc, "angle");
         int distance = getIntValue(doc, "distance");
         Point point(m_robot_pos->getX(), m_robot_pos->getY());
         m_points.push_back(point);
-        break;
+        return;
     }
-    default:
-        m_errorCode = 2;
-        m_error = "unknow command";
-        break;
-    }
+    m_errorCode = 2;
+    m_error = "unknow command";
 }
