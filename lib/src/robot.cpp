@@ -2,7 +2,7 @@
 #include "utils/utils.h"
 using namespace rapidjson;
 
-Robot::Robot(/* args */) : m_errorCode(0), m_error("")
+Robot::Robot() : m_errorCode(0), m_error("")
 {
     m_robot_pos = std::make_shared<Point>();
 }

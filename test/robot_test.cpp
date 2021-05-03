@@ -17,20 +17,20 @@ TEST(Robot, SimpleParse)
 TEST(Robot, SimpleParseError)
 {
     Robot m_robot;
-    auto val = m_robot.parse(" { \"hello\" : \"world\"}");
+    auto val = m_robot.parse("{\"hello\":\"world\"}");
     ASSERT_EQ(val, true);
 }
 
 TEST(Robot, SimpleHandleJson)
 {
     Robot m_robot;
-    m_robot.parse(" { \"cmd\" : \"distance\"}");
+    m_robot.parse("{\"cmd\":\"distance\"}");
     ASSERT_EQ(0, m_robot.m_errorCode);
 }
 
 TEST(Robot, SimpleHandleJsonError)
 {
     Robot m_robot;
-    m_robot.parse(" { \"hello\" : \"world\"}");
+    m_robot.parse("{\"hello\":\"world\"}");
     ASSERT_EQ(2, m_robot.m_errorCode);
 }
