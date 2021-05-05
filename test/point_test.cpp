@@ -50,7 +50,7 @@ TEST(Point, calcualteDistance)
     Point p1(0, 0);
     Point p2(1, 1);
     auto val = p1.getDistnace(p2);
-    EXPECT_FLOAT_EQ(val, 3.0132665e+23);
+    EXPECT_FLOAT_EQ(val, 1.4142135);
 }
 
 TEST(Point, calculateAngle)

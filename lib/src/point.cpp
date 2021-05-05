@@ -23,6 +23,7 @@ float Point::getDistnace(Point &point)
     auto x = pow((m_x - point.m_x), 2);
     auto y = pow((m_y - point.m_y), 2);
     auto distance = sqrt(x + y);
+    return distance;
 }
 int Point::getAngle(Point &point)
 {

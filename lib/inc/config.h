@@ -1,1 +1,1 @@
-#define MINIAL_DISTANCE 10.0
+#define MINIAL_DISTANCE 10

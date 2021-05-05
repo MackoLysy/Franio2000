@@ -5,8 +5,9 @@
 
 #include "point.h"
 #include "config.h"
+#include "logger.h"
 
-class PathHandler
+class PathHandler : public Logger
 {
 public:
     PathHandler(std::shared_ptr<Point> robot_pos);
@@ -18,9 +19,14 @@ public:
     {
         m_target = value;
     }
+    int getRotation() const { return m_rotationToAppend; }
+    int getMoveDistance() const { return m_moveDistance; }
 
 private:
-    int m_rotation;
+    std::vector<Point> findNearestPoints(int angle);
+    Point findNeasetsPoints(std::vector<Point> &poinst);
+    int m_rotationToAppend;
+    int m_moveDistance;
     std::map<int, Point> m_points;
     std::shared_ptr<Point> m_robot_pos;
     Point m_target;

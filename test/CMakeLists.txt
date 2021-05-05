@@ -9,6 +9,7 @@ enable_testing()
 include_directories(../lib/inc/)
 
 include_directories(../lib/thirdparty)
+include_directories(../lib/thirdparty/utils/)
 
 file(GLOB SOURCES
     "../lib/src/*.cpp"
