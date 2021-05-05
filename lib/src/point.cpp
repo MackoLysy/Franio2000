@@ -24,7 +24,18 @@ float Point::getDistnace(Point &point)
     auto y = pow((m_y - point.m_y), 2);
     auto distance = sqrt(x + y);
 }
+int Point::getAngle(Point &point)
+{
+    float dx = point.getX() - this->m_x;
+    float dy = point.getY() - this->m_y;
+    auto result = atan2(dx, dy);
+    return radiansToAngle(result);
+}
 
+int Point::radiansToAngle(float radians)
+{
+    return (radians * 180.0) / M_PI;
+}
 float Point::angleToRadians(int angle)
 {
     return (angle * M_PI) / 180.0;

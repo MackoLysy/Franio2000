@@ -29,6 +29,14 @@ TEST(Point, calcualteSimple)
     EXPECT_FLOAT_EQ(point.m_y, 0);
 }
 
+TEST(Point, calcualteMinuAngle)
+{
+    Point point(0, 0);
+    point.calculatePoint(-10, 10);
+    EXPECT_FLOAT_EQ(point.m_x, 10);
+    EXPECT_FLOAT_EQ(point.m_y, -1);
+}
+
 TEST(Point, calcualteSimple1)
 {
     Point point(0, 0);
@@ -43,4 +51,12 @@ TEST(Point, calcualteDistance)
     Point p2(1, 1);
     auto val = p1.getDistnace(p2);
     EXPECT_FLOAT_EQ(val, 3.0132665e+23);
+}
+
+TEST(Point, calculateAngle)
+{
+    Point p1(0, 0);
+    Point p2(1, 1);
+    auto val = p1.getAngle(p2);
+    EXPECT_EQ(45, val);
 }

@@ -11,9 +11,11 @@ public:
     ~Point();
     void calculatePoint(int angle, int distance);
     float getDistnace(Point &point);
+    int getAngle(Point &point);
 
 private:
     float angleToRadians(int angle);
+    int radiansToAngle(float radians);
     float m_x;
     float m_y;
 };
