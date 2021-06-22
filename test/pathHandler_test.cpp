@@ -63,9 +63,20 @@ TEST(PathHandler, FindNearestSmallerAngle)
     ASSERT_EQ(points[0].m_y, 10);
 }
 
-TEST(PathHandler, SimpleAddPoints)
+TEST(PathHandler, SimpleCalculatePath)
 {
     auto path = createPath(0, 0, 0, 40);
+    path.addPoint(Point(20, 10), 45);
+    path.addPoint(Point(20, 0), 90);
+    path.addPoint(Point(20, -10), 135);
+    path.calculatePath();
+    ASSERT_EQ(path.m_moveDistance, MINIAL_DISTANCE);
+    ASSERT_EQ(path.m_rotationToAppend, 0);
+}
+
+TEST(PathHandler, SimpleCalculatePathAndRotation)
+{
+    auto path = createPath(0, 0, 10, 40);
     path.addPoint(Point(20, 10), 45);
     path.addPoint(Point(20, 0), 90);
     path.addPoint(Point(20, -10), 135);

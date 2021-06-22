@@ -43,7 +43,6 @@ void PathHandler::calculatePath()
 
 Point PathHandler::findNeasetsPoints(std::vector<Point> &poinst)
 {
-    
 }
 
 std::vector<Point> PathHandler::findNearestPoints(int angle)
@@ -64,7 +63,7 @@ std::vector<Point> PathHandler::findNearestPoints(int angle)
         auto next = std::next(it, 1);
         currentAngle = it->first;
         nextAngle = next->first;
-        if (currentAngle > angle && nextAngle < angle)
+        if (currentAngle > angle && nextAngle < angle && next == m_points.end())
         {
             points.push_back(m_points[currentAngle]);
             points.push_back(m_points[nextAngle]);

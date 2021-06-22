@@ -37,7 +37,14 @@ int Point::radiansToAngle(float radians)
 {
     return (radians * 180.0) / M_PI;
 }
+
 float Point::angleToRadians(int angle)
 {
     return (angle * M_PI) / 180.0;
+}
+
+std::ostream &operator<<(std::ostream &os, const Point &point)
+{
+    os << "[" << point.m_x << " " << point.m_y << "]";
+    return os;
 }
